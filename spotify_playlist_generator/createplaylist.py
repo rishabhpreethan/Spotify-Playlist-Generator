@@ -4,18 +4,11 @@ from spotifyclient import SpotifyClient
 
 
 def main():
-    # SPOTIFY_AUTHORIZATION_TOKEN='BQCXIP3dUen6NFpsGfhoufHwnS50NOHOxcbMvX1pEB3Rvi9EVNJOO0OqddryP7eTGYucLpKLO81303sVheVBZTD-xgrRBwGNC8SZxHgh27R-yfvdlclxAsmYrk5pVmAXBHSWHaKGRCzhZmLKsbl0HHfyv5XULLwG9LH3AlNb6kS74aXZ80ZjWfNhYKBoeX_mIShlzbs4X8MU'
-    # SPOTIFY_USER_ID='8c3sgu4skz19vetw8pz7512r0'
-
     spotify_client = SpotifyClient(os.getenv("SPOTIFY_AUTHORIZATION_TOKEN"),os.getenv("SPOTIFY_USER_ID"))
-    
-    # spotify_client = SpotifyClient(SPOTIFY_AUTHORIZATION_TOKEN,SPOTIFY_USER_ID)
-    # spotify_client = SpotifyClient('BQCXIP3dUen6NFpsGfhoufHwnS50NOHOxcbMvX1pEB3Rvi9EVNJOO0OqddryP7eTGYucLpKLO81303sVheVBZTD-xgrRBwGNC8SZxHgh27R-yfvdlclxAsmYrk5pVmAXBHSWHaKGRCzhZmLKsbl0HHfyv5XULLwG9LH3AlNb6kS74aXZ80ZjWfNhYKBoeX_mIShlzbs4X8MU','8c3sgu4skz19vetw8pz7512r0')                               
-
     num_tracks_to_visualise = int(input("How many tracks would you like to visualise? "))
     last_played_tracks = spotify_client.get_last_played_tracks(num_tracks_to_visualise)
 
-    # print("\nHere are the last ",num_tracks_to_visualise, "tracks you listened to on Spotify:")
+    print("\nHere are the last ",num_tracks_to_visualise, "tracks you listened to on Spotify:")
     for index, track in enumerate(last_played_tracks):
         print(f"{index+1}- {track}")
 
